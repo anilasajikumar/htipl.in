@@ -1,0 +1,377 @@
+@extends('layouts.web.layout')
+@section('style')
+<style type="text/css">
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+</style>
+@endsection
+@section('content')
+<header style="background-image:url('{{asset('web_dashboard/images/Where-To-Study-4.jpg')}}');">
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="vdoverlay w-100 text-white">
+        <h1 class="display-3">Welcome To HTI Pvt Ltd</h1>
+        {{-- <p class="lead mb-0">About The Life Of a Student</p> --}}
+      </div>
+    </div>
+  </div>
+</header>
+
+
+ <!-- About Icrq --> 
+        
+<section class="About_area">
+  <div class="container">     
+  <div class="row Why_card">
+    <div class="col-md-12 col-xl-6 col-lg-6" data-aos="fade-up">  
+
+       <div class="iii">
+      <div class="embed-responsive">
+  {{-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe> --}}
+  <img class="img-fluid" src="{{ asset('web_dashboard/images/home_img.jpg') }}">
+</div>
+      </div>
+
+    </div>
+
+    <div class="col-md-12 col-xl-6 col-lg-6" data-aos="fade-up">  
+      <div class="About_area_text">
+      <h2 class="About_tittle mb-3">ABOUT HTI Pvt Ltd</h2>
+      <p class="card-text">HTIPL Hitech Safety Institute NEBOSH LP #1365 is offering Worldwide Approved NEBOSH Courses. Hitech Institution Pvt Ltd is a leading Safety Training and consultancy organization which providing Quality Safety Training in Thrissur. HTIPL is supported by a highly qualified, experienced team with exceptional Safety educational backgrounds and expertise from Oil field, Construction, Engineering, Marine and Consultation.</p>
+      
+      <button class="btn Second_btn" type="submit" onclick="window.location='{{url('about')}}';">Learn More</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</section>
+<!-- End About Icrq --> 
+
+<!-- QUALIFICATIONS --> 
+        
+ <section class="mt-5 p-3">
+  <div class="container">
+  <h2 class="text-center">Courses</h2>
+  <div class="row mt-5">
+  @foreach($categories as $category)
+  <div class="col-xl-3 col-lg-3 col-md-6" data-aos="fade-up">
+  <div class="single_courses">
+  <div class="thumb">
+  <a href="{{route('qualifications.details', $category->slug )}}">
+  <img src="{{asset('/storage/'.$category->cover_image)}}" class="img-fluid" alt="Responsive image">
+  </a>
+  </div>
+  <div class="courses_info text-center pt-4 pb-4">
+  <h5><a href="{{route('qualifications.details', $category->slug )}}">{{$category->category_name}}</a></h5>
+  </div>
+  </div>
+  </div>
+  @endforeach
+
+
+  </div>
+</div>
+</section>
+
+<!-- End QUALIFICATIONS --> 
+
+<section class="mt-5 p-3">
+  <div class="container">
+  <h2 class="text-center">Corporate Service</h2>
+  <div class="row mt-5">
+  @foreach($corporate_categories as $category)
+  <div class="col-xl-3 col-lg-3 col-md-6" data-aos="fade-up">
+  <div class="single_courses">
+  <div class="thumb">
+  <a href="{{route('corporate-training.details', $category->slug )}}">
+  <img src="{{asset('/storage/'.$category->cover_image)}}" class="img-fluid" alt="Responsive image">
+  </a>
+  </div>
+  <div class="courses_info text-center pt-4 pb-4">
+  <h5><a href="{{route('corporate-training.details', $category->slug )}}">{{$category->category_name}}</a></h5>
+  </div>
+  </div>
+  </div>
+  @endforeach
+
+
+  </div>
+</div>
+</section>
+
+<!-- News events --> 
+        
+ <section class="News_events_area">
+  <div class="container">  
+    <div class="News_events_tittle">
+      <h2 class="mb-5">NEWS AND EVENTS</h2>
+  <div class="row News_events_card">
+     @foreach($news_events as $news_event)
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="blog-entry">
+              <a href="{{ route('news-events.details',$news_event->slug) }}" data-aos="fade-up" class="block-20 d-flex align-items-end" style="background-image: url('{{asset('/storage/'.$news_event->image)}}'); text-decoration: none;">
+                <div class="meta-date text-center p-2">
+                  <span class="day">{{$news_event->type}}</span>
+                </div>
+              </a>
+              <div class="text border border-top-0 p-4" data-aos="fade-up">
+                <h3 class="heading"><a href="{{ route('news-events.details',$news_event->slug) }}">{{$news_event->title}}</a></h3>
+                <div class="d-flex align-items-center mt-4">
+                  <p class="mb-0">
+                    <a class="mr-2">{{Carbon\Carbon::parse($news_event->date)->format('d M Y')}}</a>
+                  </p>
+                </div>
+                <p>{!! Str::limit($news_event->description, 100) !!}</p>
+                <div class="d-flex align-items-center mt-4">
+                  <p class="mb-0"><a style="text-decoration: none;" href="{{ route('news-events.details',$news_event->slug) }}">Read More...</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach 
+  </div>
+</div>
+</div>
+</section>
+
+<div class="container" style="overflow-x:auto;">
+<h2>Course Calender</h2>
+<table class="table table-bordered mt-4 mb-5">
+  <thead style="background-color: #6a93b6;">
+    <tr class="text-white text-center">
+      <th scope="col">COURSE NAME</th>
+      <th scope="col">COURSE STARTING DATE</th>
+      <th scope="col">LOCATION</th>
+      <th scope="col">EXAM DATE</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($course_calender as $data)
+    <tr class="text-center">
+      <td class="table-secondary">{{$data->course_name}}</td>
+      <td class="table-secondary">{{ \Carbon\Carbon::parse($data->starting_date)->format('j F Y') }}</td>
+      <td class="table-secondary">{{$data->location}}</td>
+      <td class="table-secondary">
+        {{ \Carbon\Carbon::parse($data->exam_date)->format('j F Y') }} &nbsp; <br>
+        <a style="text-decoration: none;" class="btn-sm btn-success mt-2" href="{{ route('apply_now.mail') }}">
+          <small>Apply Now</small>
+        </a>
+      </td>
+    </tr>
+    @endforeach
+   <tr class="text-center">
+      <td class="table-secondary" colspan="4">
+        <a style="text-decoration: none;" href="{{ route('course-calendar') }}">View More</a>
+      </td>
+    </tr>
+   
+  </tbody>
+</table>
+
+</div>
+
+ <section class="icrq_center_area">
+  <div class="gray-bg"></div>
+  <div class="container"> 
+   <div class="row">
+    <div class="col-md-6" data-aos="fade-up">  
+    <h2 class="icrq_center-title">STUDENT ENQUIRY</h2>  
+<!--     <p class="icrq_center-text mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+    </div>
+    <div class="col-md-6" data-aos="fade-up">  
+    <button class="btn Second_btn" type="submit" onclick="window.location='{{ route('apply_now.mail') }}';">APPLY NOW</button>
+    </div>
+   </div>
+ </div>
+</section>
+
+
+<!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+          <div class="row">
+               <div class="col-sm-5">
+                   <div class="section-title" data-aos="fade-up">
+                    <div class="section-title-2">
+                      <h2><span>Our</span><br>Students Speaks</h2>
+                     <button class="btn Second_btn mt-4" type="submit" onclick="window.location='{{url('about')}}';">Video Testimonials</button>
+                    </div>
+                   </div>
+                 </div>
+       <div class="col-sm-7">
+        <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            @foreach($testimonials as $testimonial)
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    {!! $testimonial->description !!}
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                  <h3>{{$testimonial->title}}</h3>
+                  <h4>{{$testimonial->designation}}</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+            @endforeach
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Testimonials Section -->
+
+
+<div class="container mt-5 mb-3">
+  <h2 class="text-center">Our Partners</h2>
+   <section class="customer-logos slider mt-5">
+    @foreach($clients as $client)
+      <div class="slide"><img alt="{{$client->name}}" src="{{asset('/storage/'.$client->logo)}}"></div>
+    @endforeach
+   </section>
+</div>
+
+@section('script')
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.customer-logos').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 4
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 3
+            }
+        }]
+    });
+});
+</script>
+@endsection
+@endsection

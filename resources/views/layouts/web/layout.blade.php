@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800&display=swap" rel="stylesheet">
+<link rel="icon" href="{{asset('web_dashboard/images/logo.svg')}}" type="image/x-icon">
+<title>HTI Pvt Ltd</title>
+<meta name="author" content="Imagino Solutions  - website designer calicut - www.imaginosolutions.com">
+<meta name="description" content="HTI was founded by a team of professionals .HTI an ISO 9001-2015 Certified
+organization We are focused on acquiring knowledge rather than imparting
+knowledge wherein teachers act as facilitators. The learning process is made
+more enjoyable by adopting an unconventional methodology of education
+where students are encouraged to learn through research & model-making,
+leading to greater retention. Our aim is to ensure all-round development of the
+students personality."/>
+<meta name="copyright" content="HTI">
+<meta name="language" content="EN">
+<meta name="robots" content="index,follow" />
+<meta name="designer" content="Imagino Solutions">
+<meta name="reply-to" content="info@htipl.org">
+<meta name="owner" content="HTI">
+<meta name="url" content="https://htipl.org/">
+<meta name="og:title" content="HTI"/>
+<meta name="og:type" content="Education"/>
+<meta name="og:url" content="https://htipl.org/"/>
+<meta name="og:image" content="https://htipl.org/web_dashboard/images/logo.svg"/>
+<meta name="og:site_name" content="HTI"/>
+<meta name="og:description" content="HTI was founded by a team of professionals .HTI an ISO 9001-2015 Certified
+organization We are focused on acquiring knowledge rather than imparting
+knowledge wherein teachers act as facilitators. The learning process is made
+more enjoyable by adopting an unconventional methodology of education
+where students are encouraged to learn through research & model-making,
+leading to greater retention. Our aim is to ensure all-round development of the
+students personality."/>
+   
+    <meta property="article:section" content="Education"/>
+    <meta property="article:tag" content="HTI"/>
+    <meta property="article:tag" content="HTI"/>
+<!--style CSS -->
+<link href="{{asset('web_dashboard/css/style.css')}}" rel="stylesheet">
+<link href="{{asset('web_dashboard/css/responsive.css')}}" rel="stylesheet">
+<link href="{{asset('web_dashboard/css/swiper-bundle.min.css')}}" rel="stylesheet">
+  <link href="{{asset('web_dashboard/css/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+@yield('style')
+</head>
+<body>
+
+<div class="container-fluid navbar top-nav fixed-top top-btn-nav">
+    <div class="container">
+  <nav class="navbar navbar-light">
+  <a class="nav-logo navbar-brand" href="{{ url('/') }}"><img src="{{asset('web_dashboard/images/logo.svg')}}" class="img-fluid" alt="Logo"></a>  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="btn">LOGIN</span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="my-2 my-lg-2 ml-auto header_area">
+      <a href="{{ route('study-center.login') }}"><button class="btn btn-outline-success mr-sm-2" type="submit">Center Login</button></a>
+      <a href="{{url('login')}}"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Student Login</button></a>
+    </div>
+  </div>
+</nav>
+</div>
+</div>
+
+
+<section class="header_area mt-3">
+
+<nav class="navbar px-md-0 navbar-expand-lg  ftco_navbar ftco-navbar-light p-0" id="ftco-navbar">
+        <div class="container">
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+          <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav">
+              <li class="nav-item {{ Request::is('/') ? 'active' : '' }}"><a href="{{url('/')}}" class="nav-link">Home</a></li>
+              <li class="nav-item {{ Request::is('about') ? 'active' : '' }}"><a href="{{route('about')}}" class="nav-link">About</a></li>
+              <li class="nav-item {{ Request::is('courses') || Request::is('courses/*') ? 'active' : '' }}"><a href="{{route('courses')}}" class="nav-link">Courses</a></li>
+              <li class="nav-item {{ Request::is('corporate-training') || Request::is('corporate-training/*') ? 'active' : '' }}"><a href="{{route('corporate-training')}}" class="nav-link">Corporate Service</a></li>
+              <li class="nav-item {{ Request::is('news-events') || Request::is('news-events/*') ? 'active' : '' }}"><a href="{{route('news-events')}}" class="nav-link">News And Events</a></li>
+              <li class="nav-item {{ Request::is('our-centers') ? 'active' : '' }}"><a href="{{route('our-centers')}}" class="nav-link">Our Centers</a></li>
+              <li class="nav-item {{ Request::is('course-calendar') ? 'active' : '' }}"><a href="{{route('course-calendar')}}" class="nav-link">Course Calendar</a></li>
+              <li class="nav-item {{ Request::is('placements') ? 'active' : '' }}"><a href="{{route('placements.list')}}" class="nav-link">Placements</a></li>
+               <li class="nav-item {{ Request::is('checkcert') ? 'active' : '' }}"><a href="{{route('checkcert')}}" class="nav-link">Checkcert</a></li>
+              <!-- <li class="nav-item"><a href="news-events.html" class="nav-link">News & Events</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+</section>
+
+
+   <!-- Navbar -->
+@yield('content')
+
+<!-- Footer -->
+ <section id="footer" style="background: #5d5d5d; padding-top: 60px;">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-5">
+            <div class="ftco mb-4">
+              <img src="{{asset('web_dashboard/images/white.png')}}">
+              <p class="mt-5">
+              </p>
+              <ul class="ftco-footer-social list-unstyled mt-5">
+                <li class="ftco-animate"><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                <li class="ftco-animate"><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        
+          <div class="col-md">
+            <div class="ftco mb-4 ml-md-4 mt-5">
+              <h4 class="ftco-heading-2">Quick Links</h4>
+              <ul class="list-unstyled">
+                <li><a href="{{route('about')}}">About Us</a></li>
+                <li><a href="{{route('courses')}}">Services</a></li>
+                <li><a href="{{route('news-events')}}">News And Events</a></li>
+                <li><a href="{{route('our-centers')}}">Our Centers</a></li>
+                <li><a href="{{route('course-calendar')}}">Course Calendar</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="ftco mb-4 mt-5">
+              <h4 class="ftco-heading-2">Contact Us</h4>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li><i class="fa fa-map-marker icon mr-3"></i><span class="text"> {{-- HTI <br>
+                  TC 25/2964-C,Pavizhassery,Mallor Road, Vanchiyoor.PO,Trivandrum, Kerala 695035.</span> --}}
+                  HTI Pvt. Ltd.<br>
+		  2nd floor,Rameesha Building, Opposite Nirmala Shishu Bhavan, SRM Road, Kaloor, Ernakulam North<br>
+                {{-- <a href="tel:919946636602"><i class="fa fa-phone icon mr-3"></i><span class="text">+91 9450660227</span></a> --}}
+                 </li>
+                  <li>
+                    <a href="tel:919539823456"><i class="fa fa-phone icon mr-3"></i><span class="text">+91 9539823456</span></a>
+                  </li>
+                  <li>
+                    <a href="mailto:htiplinfo@gmail.com"><i class="fa fa fa-envelope icon mr-3"></i><span class="text">htiplinfo@gmail.com</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="foot-end"> 
+        <div class="col-md-12 text-center">
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script><a href="#" target="_blank"> HTI Pvt Ltd </a> All Rights Reserved.
+            </div>
+          </div>
+  </section>
+</body>
+  <!-- ./Footer -->
+
+
+
+<!-- jQuery v3.3.1 --> 
+<script src="{{asset('web_dashboard/js/jquery-3.3.1.min.js')}}"></script> 
+<!-- Bootstrap v4.0.0 --> 
+<script src="{{asset('web_dashboard/js/bootstrap.min.js')}}"></script> 
+<script src="{{asset('web_dashboard/js/main.js')}}"></script>
+<script src="{{asset('web_dashboard/js/swiper-bundle.min.js')}}"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script type="text/javascript">
+  new Swiper('.testimonials-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+
+      1200: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      }
+    }
+  });
+</script>
+@yield('script')
+</html>

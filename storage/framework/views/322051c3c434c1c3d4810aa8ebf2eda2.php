@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('layouts.admin.layout', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /home/sites/35a/6/6352167ba7/public_html/resources/views/admin/dashboard.blade.php ENDPATH**/ ?>
